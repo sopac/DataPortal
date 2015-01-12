@@ -1,0 +1,1 @@
+rsync -ar -e ssh ../DataPortal root@www.sopac.org:/root/
