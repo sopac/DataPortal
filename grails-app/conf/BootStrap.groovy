@@ -92,7 +92,7 @@ class BootStrap {
 
         //datatype
         if (DataType.list().size() == 0) {
-            def list = ["Document", "Newsletter", "Video", "Photo", "Geospatial Maps", "Animation"]
+            def list = ["Geospatial Maps", "Documents", "Newsletters", "Videos", "Photos", "Animations"]
             list.each { type ->
                 DataType dt = new DataType()
                 dt.type = type

@@ -29,7 +29,7 @@
     <g:form>
         <input type="text" style="width: 700px" class="form-control" id="exampleInputEmail1" placeholder="Enter text to search...">
         <br/>
-        <g:link class="btn btn-large btn-primary" style="margin-top: -20px" controller="searchable">Search</g:link>
+        <g:link class="btn btn-large btn-primary" style="margin-top: -20px" controller="searchable"><b>Search</b></g:link>
     </g:form>
 </div>
 
@@ -181,7 +181,7 @@
                 <div class="col-md-3">
                     <div class="center">
                         <a href="#">
-                            <img class="frontpageImage, well" style="width: 140px !important; height: 90px !important;" src="${resource(dir: 'images/sources', file: it.acronym + ".png")}"/>
+                            <img class="frontpageImage" style="width: 140px !important; " src="${resource(dir: 'images/sources', file: it.acronym + ".png")}"/>
                             <h5>${it.name}</h5>
                         </a>
                     </div>
@@ -195,7 +195,7 @@
                 <div class="col-md-3">
                     <div class="center">
                         <a href="#">
-                            <img class="frontpageImage, well" style="width: 140px !important; height: 90px !important;" src="${resource(dir: 'images/sources', file: it.acronym + ".png")}"/>
+                            <img class="frontpageImage" style="width: 140px !important; " src="${resource(dir: 'images/sources', file: it.acronym + ".png")}"/>
                             <h5>${it.name}</h5>
                         </a>
                     </div>
