@@ -1,7 +1,9 @@
+import dataportal.Category
 import dataportal.Country
 import dataportal.DataSource
 import dataportal.DataType
 import dataportal.Division
+import dataportal.Programme
 import dataportal.Staff
 import dataportal.Theme
 import org.apache.commons.lang.RandomStringUtils
@@ -12,6 +14,8 @@ class BootStrap {
     def grailsApplication
 
     def init = { servletContext ->
+        println "Bootstrapping..."
+
         //division
         if (Division.list().size() == 0) {
             Division d = new Division()
@@ -19,6 +23,21 @@ class BootStrap {
             d.acronym = "AGTD"
             d.director = null
             d.save(flush: true, failOnError: true)
+        }
+
+        //programme
+        if (Programme.list().size() == 0){
+            def map = [:]
+            map.put("Disaster Risk Reduction", "DRR")
+            map.put("Water and Sanitation", "WSP")
+            map.put("Geoscience for Development", "GSD")
+            map.put("Technical Support Services", "TSS")
+            map.each{k, v->
+                Programme p = new Programme()
+                p.setName(k)
+                p.setAcronym(v)
+                p.save(flush: true, failOnError: true)
+            }
         }
 
         //staff
@@ -39,8 +58,9 @@ class BootStrap {
                     s.phoneExtension = Phone
                     s.email = Email.toString().trim().toLowerCase()
                     s.location = "Suva"
-                    s.programme = Programme
+                    s.programme = Programme.findWhere(acronym: Programme1)
                     s.division = Division.list().get(0)
+                    s.bio = "None"
                     s.username = n.trim().split(" ")[0].toLowerCase().trim()
                     int randomStringLength = 8
                     String charset = (('a'..'z') + ('A'..'Z') + ('0'..'9')).join()
@@ -144,7 +164,51 @@ class BootStrap {
                 ds.url = "http://" + url.get(k)
                 ds.save(flush: true, failOnError: true)
             }
+        }
 
+        //categories
+        if (Category.list().size() == 0){
+            def l = []
+            l.add("Bioata")
+            l.add("Base Imageries")
+            l.add("Administrative Boundaries")
+            l.add("Bathymetric")
+            l.add("Coastal")
+            l.add("Topographic Maps Charts")
+            l.add("Technical Reports")
+            l.add("Training Reports")
+            l.add("Training Material")
+            l.add("Hydrographical")
+            l.add("Hydrological")
+            l.add("Trip Reports")
+            l.add("Information Brochures")
+            l.add("Cruise Reports")
+            l.add("Raw Datasets")
+            l.add("Data Release Reports")
+            l.add("Bulletins")
+            l.add("Land Use Cover")
+            l.add("Outcomes and Proceeding")
+            l.add("Agriculture")
+            l.add("Maritime Boundaries")
+            l.add("Economy")
+            l.add("Elevation")
+            l.add("Environment")
+            l.add("Hazard")
+            l.add("Exposure")
+            l.add("Loss")
+            l.add("Infrastructure")
+            l.add("Oceans")
+            l.add("Planning Cadastre")
+            l.add("Utilities")
+            l.add("Communications")
+            l.add("Promotional Newlestter")
+            l.add("Promotional Material")
+
+            l.sort().each {
+                Category c = new Category()
+                c.name = it
+                c.save(flush: true, failOnError: true)
+            }
         }
 
     }

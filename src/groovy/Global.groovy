@@ -3,6 +3,6 @@
  */
 public class Global {
 
-    public static def disabledMenu = ["_DemoPage", "Searchable", "Dbdoc", "Home"]
+    public static def disabledMenu = ["_DemoPage", "Searchable", "Dbdoc", "Home", "Division", "Programme"]
 
 }

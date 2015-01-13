@@ -1,19 +1,14 @@
 package dataportal
 
 /**
- * FocalPoint
+ * Programme
  * A domain class describes the data object and it's mapping to the database
  */
-class FocalPoint {
+class Programme {
 
-    Country country
     String name
-    String designation
-    String address
-    String telephone
-    String email
-    String attentionNotes
-    String secondaryContacts
+    String acronym
+    Staff manager
 
     /* Default (injected) attributes of GORM */
 //	Long	id
@@ -32,14 +27,9 @@ class FocalPoint {
     }
 
     static constraints = {
-        country()
         name()
-        designation()
-        address(maxSize: 2500)
-        telephone()
-        email()
-        attentionNotes(maxSize: 2500)
-        secondaryContacts(maxSize: 2500)
+        acronym()
+        manager(nullable: true)
     }
 
     /*
@@ -49,6 +39,6 @@ class FocalPoint {
     @Override
     // Override toString for a nicer / more descriptive UI
     public String toString() {
-        return "${country} - ${name}";
+        return "${name}";
     }
 }

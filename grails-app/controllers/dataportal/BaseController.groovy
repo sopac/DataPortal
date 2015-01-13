@@ -1,5 +1,5 @@
 package dataportal
 
-class SourceController {
+class BaseController {
     static scaffold = true
 }

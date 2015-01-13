@@ -15,8 +15,9 @@ class Staff {
     String phoneExtension
     String location
     Staff manager
-    String programme
+    Programme programme
     Division division
+    String bio
     String username
     String password
     boolean administrator
@@ -45,8 +46,9 @@ class Staff {
         phoneExtension()
         location()
         manager(nullable: true)
-        programme()
+        programme(nullable: true)
         division()
+        bio()
         username(unique: false)
         password(nullable: true)
         administrator()

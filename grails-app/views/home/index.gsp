@@ -97,7 +97,7 @@
                 <div class="col-md-4">
                     <div class="center">
                         <a href="#">
-                            <img class="frontpageImage" src="${resource(plugin: 'kickstart', dir: 'images/frontpage', file: 'bs-docs-twitter-github.png')}"/>
+                            <img class="frontpageImage" src="${resource(plugin: 'kickstart', dir: 'images/frontpage', file: 'components.jpg')}"/>
                             <h5>${it.type}</h5>
                         </a>
                     </div>
@@ -181,7 +181,7 @@
                 <div class="col-md-3">
                     <div class="center">
                         <a href="#">
-                            <img class="frontpageImage" style="width: 140px !important; " src="${resource(dir: 'images/sources', file: it.acronym + ".png")}"/>
+                            <img class="frontpageImage" style="width: 70px !important; height: 60px !important;" src="${resource(dir: 'images/sources', file: it.acronym + ".png")}"/>
                             <h5>${it.name}</h5>
                         </a>
                     </div>
@@ -195,7 +195,7 @@
                 <div class="col-md-3">
                     <div class="center">
                         <a href="#">
-                            <img class="frontpageImage" style="width: 140px !important; " src="${resource(dir: 'images/sources', file: it.acronym + ".png")}"/>
+                            <img class="frontpageImage" style="width: 70px !important; height: 60px !important;" src="${resource(dir: 'images/sources', file: it.acronym + ".png")}"/>
                             <h5>${it.name}</h5>
                         </a>
                     </div>
