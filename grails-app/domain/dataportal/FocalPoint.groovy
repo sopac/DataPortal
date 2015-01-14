@@ -12,8 +12,9 @@ class FocalPoint {
     String address
     String telephone
     String email
-    String attentionNotes
     String secondaryContacts
+    String attentionNotes
+
 
     /* Default (injected) attributes of GORM */
 //	Long	id
@@ -38,8 +39,9 @@ class FocalPoint {
         address(maxSize: 2500)
         telephone()
         email()
-        attentionNotes(maxSize: 2500)
         secondaryContacts(maxSize: 2500)
+        attentionNotes(maxSize: 2500)
+
     }
 
     /*

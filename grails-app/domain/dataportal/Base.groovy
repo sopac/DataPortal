@@ -10,10 +10,38 @@ class Base {
 //	Long	id
 //	Long	version
 
+    //Base Metadata
     String identifier
     String title
+    String description
+    DataType dataType // Document, Newsletter, Video, Photo, GeoSpatial Map, Model Animation
+    Theme theme
+    static hasMany = [categories: Category, countries: Country, relatedDocuments: Base]
+    String authors
+    DataSource source
+    Division division
+    String keywords
+    //Base relatedDocuments
+    String externalUrl
+    int year
 
-    //mutiple categories, countries
+    //Document/Newsletter
+    Date dateCreated
+    Date datePublished
+    String fileName
+    String fileSize
+    boolean series
+    String seriesInformation
+    int noOfPages
+
+    //Media - Video/Animation
+    String playbackTime
+
+    //Map
+    String WMSLink
+    String spatialPlatform //Geonode / GeoServer / OpenGeo
+
+    //Photo
 
     /* Automatic timestamping of GORM */
 //	Date	dateCreated
@@ -28,6 +56,31 @@ class Base {
     }
 
     static constraints = {
+
+        identifier(unique: true)
+        title()
+        description(maxSize: 2500)
+        dataType() // Document, Newsletter, Video, Photo, GeoSpatial Map, Model Animation
+        theme()
+        categories()
+        countries()
+        authors()
+        source()
+        division()
+        keywords()
+        externalUrl()
+        year()
+        dateCreated()
+        datePublished()
+        fileName()
+        fileSize()
+        series()
+        seriesInformation()
+        noOfPages()
+        playbackTime()
+        WMSLink()
+        spatialPlatform() //Geonode / GeoServer / OpenGeo
+
     }
 
     /*

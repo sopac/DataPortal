@@ -3,11 +3,13 @@ import dataportal.Country
 import dataportal.DataSource
 import dataportal.DataType
 import dataportal.Division
+import dataportal.FocalPoint
 import dataportal.Programme
 import dataportal.Staff
 import dataportal.Theme
 import org.apache.commons.lang.RandomStringUtils
 import org.apache.commons.lang.StringUtils
+
 
 class BootStrap {
 
@@ -208,6 +210,24 @@ class BootStrap {
                 Category c = new Category()
                 c.name = it
                 c.save(flush: true, failOnError: true)
+            }
+        }
+
+        //focal points
+        if (FocalPoint.list().size() == 0){
+            String path = grailsApplication.mainContext.getResource('data/focal.xlsx').file.absolutePath
+            new ExcelReader(path).eachLine([labels: true]) {
+                FocalPoint fp = new FocalPoint()
+                println CountryName
+                fp.setCountry(Country.findByName(CountryName))
+                fp.name = Name
+                fp.designation = Designation
+                fp.address = Address
+                fp.telephone = Telephone
+                fp.email = Email
+                fp.attentionNotes = Attn
+                fp.secondaryContacts = Secondary
+                fp.save(flush: true, failOnError: false)
             }
         }
 
